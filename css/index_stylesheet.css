@@ -1,0 +1,24 @@
+#blank{
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+#bigtitle{
+    font-family: sans-serif;
+}
+
+.breadcrumb{
+    background-color:black;
+}
+#category{
+    color: white;
+}
+i{
+    color: white;
+}
+h1,h2,h3,h4,h5,p,label,a,span{
+    font-family: Microsoft YaHei;
+}
+#news{
+    color: white;
+}
