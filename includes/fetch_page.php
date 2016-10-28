@@ -19,7 +19,7 @@ if($result=mysqli_query($con,$sql))
 					<p class=\"list-group-item-text\">
 						%s
 					</p>
-				</a>",$row['passage_id'],$row['p_title'],$row['description']);
+				</a>",$row['passage_id'],$row['p_title'],str_replace("&lt;p&gt;","",$row['description']));
         
        
     }

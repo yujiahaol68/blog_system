@@ -3,7 +3,7 @@
 //2 根据页码取出数据：php->mysql处理
 $host = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $db = "test";
 $con = mysqli_connect($host,$username,$password,$db) OR die('连接数据库失败'.mysqli_connect_error());
 //选择要操作的数据库

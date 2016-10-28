@@ -30,10 +30,11 @@ if($result=mysqli_query($con,$sql))
         printf("<div class=\"page-header\">
         <h1>%s</h1><br/>
         <h5><small>%s  作者：%s</small></h5></div>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;%s</p>
-        ",$row["p_title"],$row["pub_time"],$row["writer"],$row["p_content"]);
-        
-        
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        ",$row["p_title"],$row["pub_time"],$row["writer"]);
+        $content = stripslashes($row["p_content"]);
+        $content = html_entity_decode($content);
+        echo $content; 
     }
     else{
         echo "文章信息获取失败！<br/>";

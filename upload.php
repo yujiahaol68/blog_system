@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">        
     </head>
     <body>
+        <script type="text/javascript" src="includes/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" src="includes/ueditor/ueditor.all.js"></script>
+        <script type="text/javascript">
+        var ue = UE.getEditor('container');
+        ue.ready(function(){
+            ue.setContent('');
+        });
+        </script>
        <div class="container">
           <div class="row clearfix">
              <div class="col-md-12 column">
@@ -18,7 +26,8 @@
                      <br/>
                     <label for="input_title">内容</label>
                     <br/>
-                     <textarea name="p_content" cols="100" rows="40"></textarea>
+                    <script id="container" name="p_content" type="text/plain">
+                    </script>
                      <br/>
                      <button class="btn btn-primary" type="submit" name="Submit">提交</button>
                  </form>
@@ -55,7 +64,7 @@
                 $a = sanitizeString($_POST['p_content']);
                 $b = sanitizeString($_POST['p_title']);
                 $c = sanitizeString($_POST['writer']);    
-                $des = explode("。",$a);
+                $des = explode("。",strip_tags($a));
                 $sql="INSERT INTO `page` (`passage_id`, `p_content`, `p_title`, `pub_time`, `writer`, `description`) VALUES ('$count', '$a', '$b', NOW(), '$c', '$des[0]')";
                 if(mysqli_query($con,"SET NAMES UTF8"))
                 {
